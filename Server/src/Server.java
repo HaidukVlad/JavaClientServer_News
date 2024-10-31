@@ -13,14 +13,21 @@ public class Server {
             try(
                     Socket socket = server.accept();
                     BufferedWriter writer =
-                                    new BufferedWriter(
-                                            new OutputStreamWriter(
-                                                    socket.getOutputStream())))
+                    new BufferedWriter(
+                            new OutputStreamWriter(
+                                    socket.getOutputStream()));
+                    BufferedReader reader =
+                    new BufferedReader(
+                            new InputStreamReader(socket.getInputStream()))
+            )
             {
-                writer.write("HELLO FROM VLAD'S SERVER!");
+                String request = reader.readLine();
+                writer.write("HELLO FROM VLAD'S SERVER! " + request.length());
                 writer.newLine();
                 writer.flush();
             }
+
+        // При выходе перед catch будет автоматически закрыт сервер в любом случае
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
