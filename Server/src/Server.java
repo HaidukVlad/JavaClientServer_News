@@ -10,19 +10,17 @@ public class Server {
         {
             System.out.println("Server starting...");
 
-            Socket socket = server.accept();
-            System.out.println("Client Connected!");
-
-            BufferedWriter writer =
-                    new BufferedWriter(
-                            new OutputStreamWriter(
-                                    socket.getOutputStream()));
-            writer.write("HELLO FROM VLAD'S SERVER!");
-            writer.newLine();
-            writer.flush();
-
-            writer.close();
-            socket.close();
+            try(
+                    Socket socket = server.accept();
+                    BufferedWriter writer =
+                                    new BufferedWriter(
+                                            new OutputStreamWriter(
+                                                    socket.getOutputStream())))
+            {
+                writer.write("HELLO FROM VLAD'S SERVER!");
+                writer.newLine();
+                writer.flush();
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
