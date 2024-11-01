@@ -9,8 +9,8 @@ public class Server {
         try (ServerSocket server = new ServerSocket(8000))
         {
             System.out.println("Server starting...");
-
-            try(
+            while (true)
+                try(
                     Socket socket = server.accept();
                     BufferedWriter writer =
                     new BufferedWriter(
@@ -18,14 +18,18 @@ public class Server {
                                     socket.getOutputStream()));
                     BufferedReader reader =
                     new BufferedReader(
-                            new InputStreamReader(socket.getInputStream()))
-            )
-            {
-                String request = reader.readLine();
-                writer.write("HELLO FROM VLAD'S SERVER! " + request.length());
-                writer.newLine();
-                writer.flush();
-            }
+                            new InputStreamReader(
+                                    socket.getInputStream()))
+                )
+                {
+                    String request = reader.readLine();
+                    System.out.println("Request: " + request);
+                    String response = "HELLO FROM VLAD'S SERVER! " + request.length();
+                    System.out.println("Response: " + response);
+                    writer.write(response);
+                    writer.newLine();
+                    writer.flush();
+                }
 
         // При выходе перед catch будет автоматически закрыт сервер в любом случае
         } catch (IOException e) {
