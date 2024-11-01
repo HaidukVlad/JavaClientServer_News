@@ -29,6 +29,8 @@ public class Server {
                     writer.write(response);
                     writer.newLine();
                     writer.flush();
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
                 }
 
         // При выходе перед catch будет автоматически закрыт сервер в любом случае
