@@ -1,6 +1,6 @@
+import creator_package.Creator;
 import java.io.*;
 import java.net.ServerSocket;
-import java.net.Socket;
 
 
 public class Server {
@@ -10,25 +10,13 @@ public class Server {
         {
             System.out.println("Server starting...");
             while (true)
-                try(
-                    Socket socket = server.accept();
-                    BufferedWriter writer =
-                    new BufferedWriter(
-                            new OutputStreamWriter(
-                                    socket.getOutputStream()));
-                    BufferedReader reader =
-                    new BufferedReader(
-                            new InputStreamReader(
-                                    socket.getInputStream()))
-                )
+                try( Creator creator = new Creator(server))
                 {
-                    String request = reader.readLine();
+                    String request = creator.readLine();
                     System.out.println("Request: " + request);
                     String response = "HELLO FROM VLAD'S SERVER! " + request.length();
+                    creator.writeLine(response);
                     System.out.println("Response: " + response);
-                    writer.write(response);
-                    writer.newLine();
-                    writer.flush();
                 } catch (NullPointerException e) {
                     e.printStackTrace();
                 }

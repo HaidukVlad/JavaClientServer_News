@@ -58,6 +58,8 @@ public class Creator implements Closeable {
 
     @Override
     public void close() throws IOException {
-
+        writer.close();
+        reader.close();
+        socket.close();
     }
 }
