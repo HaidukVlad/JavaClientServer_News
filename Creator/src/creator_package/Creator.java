@@ -10,27 +10,21 @@ public class Creator implements Closeable {
     private final BufferedReader reader;
     private final BufferedWriter writer;
 
-    public Creator (String ip, int port) {
-        try {
-            this.socket = new Socket(ip, port);
-            this.reader = createReader();
-            this.writer = createWriter();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public Creator(String ip, int port) throws IOException {
+        this(new Socket(ip, port));
     }
 
-    public Creator (ServerSocket server) {
-        try {
-            this.socket = server.accept();
-            this.reader = createReader();
-            this.writer = createWriter();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public Creator(ServerSocket server) throws IOException {
+        this(server.accept());
     }
 
-    public void writeLine (String message) {
+    public Creator(Socket socket) throws IOException {
+        this.socket = socket;
+        this.reader = createReader();
+        this.writer = createWriter();
+    }
+
+    public void writeLine(String message) {
         try {
             writer.write(message);
             writer.newLine();
@@ -40,7 +34,7 @@ public class Creator implements Closeable {
         }
     }
 
-    public String readLine () {
+    public String readLine() {
         try {
             return reader.readLine();
         } catch (IOException e) {
@@ -48,11 +42,11 @@ public class Creator implements Closeable {
         }
     }
 
-    private BufferedReader createReader () throws IOException {
+    private BufferedReader createReader() throws IOException {
         return new BufferedReader(new InputStreamReader(socket.getInputStream()));
     }
 
-    private BufferedWriter createWriter () throws IOException {
+    private BufferedWriter createWriter() throws IOException {
         return new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
     }
 
