@@ -1,8 +1,12 @@
 import creator_package.Creator;
-import java.io.*;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Client {
+    private static final Logger logger = Logger.getLogger(Client.class.getName());
+
     public static void main(String[] args) {
         try (Creator creator = new Creator("127.0.0.1", 8000)) {
             System.out.println("Client connected");
@@ -32,7 +36,7 @@ public class Client {
                 System.out.println("Response:\n" + response.toString().trim());
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "An error occurred while communicating with the server", e);
         }
     }
 }
