@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Client {
     public static void main(String[] args) {
-        while(true)
         try (Creator creator = new Creator("127.0.0.1", 8000)) {
             System.out.println("Client connected");
 
@@ -15,8 +14,14 @@ public class Client {
             System.out.println("Request: " + request);
             creator.writeLine(request);
 
-            String response = creator.readLine();
-            System.out.println("Response: " + response);
+            // Чтение всех строк ответа от сервера
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = creator.readLine()) != null) {
+                response.append(line).append("\n");
+            }
+
+            System.out.println("Response:\n" + response.toString().trim());
         } catch (IOException e) {
             e.printStackTrace();
         }

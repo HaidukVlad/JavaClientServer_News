@@ -7,12 +7,13 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Server {
+    private static final String NEWS_FILE = "news.txt";
     private static final Map<LocalDate, List<String>> newsStorage = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
         try (ServerSocket server = new ServerSocket(8000)) {
             System.out.println("Server starting...");
-            initializeNews();
+            loadNewsFromFile();
             while (true) {
                 Socket clientSocket = server.accept();
                 new Thread(new ClientHandler(clientSocket)).start();
@@ -22,9 +23,47 @@ public class Server {
         }
     }
 
-    private static void initializeNews() {
-        newsStorage.put(LocalDate.now(), Arrays.asList("Breaking News 1", "Breaking News 2"));
-        newsStorage.put(LocalDate.now().minusDays(1), Arrays.asList("Old News 1", "Old News 2"));
+    // Загрузка новостей из текстового файла, поддержка многострочного формата
+    private static void loadNewsFromFile() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(NEWS_FILE))) {
+            String line;
+            LocalDate currentDate = null;
+            List<String> currentNewsList = new ArrayList<>();
+
+            while ((line = reader.readLine()) != null) {
+                if (line.matches("\\d{4}-\\d{2}-\\d{2}:")) {
+                    if (currentDate != null) {
+                        newsStorage.put(currentDate, new ArrayList<>(currentNewsList));
+                    }
+                    currentDate = LocalDate.parse(line.replace(":", "").trim());
+                    currentNewsList.clear();
+                } else {
+                    currentNewsList.add(line.trim());
+                }
+            }
+
+            if (currentDate != null) {
+                newsStorage.put(currentDate, currentNewsList);
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading news file: " + e.getMessage());
+        }
+    }
+
+    // Сохранение новостей обратно в файл
+    private static void saveNewsToFile() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(NEWS_FILE))) {
+            for (Map.Entry<LocalDate, List<String>> entry : newsStorage.entrySet()) {
+                writer.write(entry.getKey() + ":");
+                writer.newLine();
+                for (String news : entry.getValue()) {
+                    writer.write(news);
+                    writer.newLine();
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error writing news file: " + e.getMessage());
+        }
     }
 
     // Обработчик запросов от клиентов
@@ -44,6 +83,7 @@ public class Server {
                 String response;
                 if (request.equalsIgnoreCase("current")) {
                     response = getCurrentNews();
+                    saveNewsToFile(); // Сохраняем текущие новости при запросе "current"
                 } else {
                     response = getNewsForDate(request);
                 }
@@ -55,17 +95,18 @@ public class Server {
             }
         }
 
-        //текущиЕ новости
+        // Возвращает текущие новости
         private String getCurrentNews() {
             LocalDate today = LocalDate.now();
-            return String.join("\n", newsStorage.getOrDefault(today, Collections.singletonList("No news for today")));
+            List<String> newsToday = newsStorage.getOrDefault(today, Arrays.asList("No news for today"));
+            return String.join("\n", newsToday);
         }
 
-        // новости за опред дату
+        // Возвращает новости за указанную дату
         private String getNewsForDate(String dateStr) {
             try {
                 LocalDate date = LocalDate.parse(dateStr);
-                List<String> news = newsStorage.getOrDefault(date, Collections.singletonList("No news for this date"));
+                List<String> news = newsStorage.getOrDefault(date, Arrays.asList("No news for this date"));
                 return String.join("\n", news);
             } catch (Exception e) {
                 return "Invalid date format. Please use YYYY-MM-DD.";
