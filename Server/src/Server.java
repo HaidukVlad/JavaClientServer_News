@@ -5,10 +5,13 @@ import java.net.Socket;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Server {
     private static final String NEWS_FILE = "news.txt";
     private static final Map<LocalDate, List<String>> newsStorage = new ConcurrentHashMap<>();
+    private static final Logger logger = Logger.getLogger(Server.class.getName());
 
     public static void main(String[] args) {
         try (ServerSocket server = new ServerSocket(8000)) {
@@ -19,11 +22,10 @@ public class Server {
                 new Thread(new ClientHandler(clientSocket)).start();
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            logger.log(Level.SEVERE, "Server encountered an error", e);
         }
     }
 
-    // Загрузка новостей из текстового файла, поддержка многострочного формата
     private static void loadNewsFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader(NEWS_FILE))) {
             String line;
@@ -46,7 +48,7 @@ public class Server {
                 newsStorage.put(currentDate, currentNewsList);
             }
         } catch (IOException e) {
-            System.out.println("Error reading news file: " + e.getMessage());
+            logger.log(Level.WARNING, "Error reading news file", e);
         }
     }
 
@@ -62,7 +64,7 @@ public class Server {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error writing news file: " + e.getMessage());
+            logger.log(Level.WARNING, "Error writing news file", e);
         }
     }
 
@@ -91,22 +93,22 @@ public class Server {
                 creator.writeLine(response);
                 System.out.println("Response: " + response);
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.log(Level.SEVERE, "Error handling client request", e);
             }
         }
 
-        // Возвращает текущие новости
+        // текущие новости
         private String getCurrentNews() {
             LocalDate today = LocalDate.now();
-            List<String> newsToday = newsStorage.getOrDefault(today, Arrays.asList("No news for today"));
+            List<String> newsToday = newsStorage.getOrDefault(today, Collections.singletonList("No news for today"));
             return String.join("\n", newsToday);
         }
 
-        // Возвращает новости за указанную дату
+        // новости за указанную дату
         private String getNewsForDate(String dateStr) {
             try {
                 LocalDate date = LocalDate.parse(dateStr);
-                List<String> news = newsStorage.getOrDefault(date, Arrays.asList("No news for this date"));
+                List<String> news = newsStorage.getOrDefault(date, Collections.singletonList("No news for this date"));
                 return String.join("\n", news);
             } catch (Exception e) {
                 return "Invalid date format. Please use YYYY-MM-DD.";
