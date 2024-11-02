@@ -8,20 +8,29 @@ public class Client {
             System.out.println("Client connected");
 
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Введите 'current' для текущих новостей или дату (YYYY-MM-DD) для новостей за указанный день:");
-            String request = scanner.nextLine();
+            String request;
 
-            System.out.println("Request: " + request);
-            creator.writeLine(request);
+            while (true) {
+                System.out.println("Введите 'current' для текущих новостей, дату (YYYY-MM-DD) для новостей за указанный день, или 'exit' для завершения:");
+                request = scanner.nextLine().trim();
 
-            // Чтение всех строк ответа от сервера
-            StringBuilder response = new StringBuilder();
-            String line;
-            while ((line = creator.readLine()) != null) {
-                response.append(line).append("\n");
+                if (request.equalsIgnoreCase("exit")) {
+                    System.out.println("Завершение работы клиента...");
+                    break;
+                }
+
+                System.out.println("Request: " + request);
+                creator.writeLine(request);
+
+                // Чтение всех строк ответа от сервера
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = creator.readLine()) != null && !line.isEmpty()) {
+                    response.append(line).append("\n");
+                }
+
+                System.out.println("Response:\n" + response.toString().trim());
             }
-
-            System.out.println("Response:\n" + response.toString().trim());
         } catch (IOException e) {
             e.printStackTrace();
         }

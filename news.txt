@@ -1,7 +1,179 @@
 2024-10-31:
 A new residential complex Dubovy was built
 A monument to Shrek was unveiled in Minsk
+New AI System Successfully Predicts Natural Disasters with 90% Accuracy
+Scientists Discover Hidden Chamber in Great Pyramid, Potentially Containing Ancient Artifacts
+
+2024-10-30:
+World's First Fully Automated Restaurant Opens in Tokyo
+Breakthrough in Climate Change Adaptation Strategies Announced
+
+2024-10-29:
+Global Health Organization Launches Campaign to Combat Diabetes
+Scientists Develop New Method for Recycling Electronic Waste
+
+2024-10-28:
+New Study Links Sleep Patterns to Success in Academic Performance
+Groundbreaking Research on Alzheimer’s Disease Yields Positive Results
+
+2024-10-27:
+Historic Summit Addresses Global Food Security Challenges
+AI-Powered Diagnostic Tool Shows Promise in Early Disease Detection
+
+2024-10-26:
+Innovative Water Purification Technology Developed for Disaster Relief
+Study Finds Regular Reading Improves Cognitive Function in Older Adults
+
+2024-10-25:
+New Renewable Energy Project Set to Power Entire Island with Solar and Wind
+Scientists Discover New Exoplanet in Habitable Zone
+
+2024-10-24:
+Breakthrough in Space Exploration: New Telescope Captures Images of Distant Galaxies
+Global Initiative Launched to Plant 1 Million Trees
+
+2024-10-23:
+Robotic Surgery Techniques Revolutionize Medical Procedures
+New Research Suggests Link Between Gut Health and Mental Well-Being
+
+2024-10-22:
+New AI Technology Helps Predict Natural Disasters with High Accuracy
+Historic Agreement Reached on Global Fisheries Management
+
+2024-10-21:
+Scientists Create First Lab-Grown Meat Product to Be Sold in Stores
+Research Shows Positive Effects of Nature on Mental Well-Being
+
+2024-10-20:
+Breakthrough in Cancer Treatment: New Therapy Shows High Success Rates
+Autonomous Vehicles Approved for Use in Major Cities
+
+2024-10-19:
+New Drug Shows Promise in Reversing Effects of Aging at Cellular Level
+International Space Station Crew Celebrates 25 Years of Human Presence in Space
+
+2024-10-18:
+Global Wildlife Conservation Efforts Lead to Increase in Endangered Species
+New Study Links Air Quality to Increased Risk of Heart Disease
+
+2024-10-17:
+Major Tech Company Announces Plans for Carbon Neutrality by 2030
+Researchers Develop Smart Contact Lenses That Monitor Eye Health
+
+2024-10-16:
+Artificial Intelligence Achieves Major Milestone in Natural Language Understanding
+First Climate-Positive City Announced in Norway
+
+2024-10-15:
+Breakthrough in Renewable Energy: Wind Farms Now Generate More Power Than Coal
+New Study Reveals Benefits of Urban Green Spaces for Community Health
+
+2024-10-14:
+First Successful Human Trials for Universal Flu Vaccine Announced
+Historic Artifacts Unearthed in Excavation Near Ancient Roman Ruins
+
+2024-10-13:
+Major Advances in Battery Technology Could Revolutionize Energy Storage
+Scientists Develop New Method to Convert CO2 into Useful Products
+
+2024-10-12:
+New Species of Frog Discovered in the Amazon Rainforest
+Tech Start-Up Launches Revolutionary AI-Powered Personal Finance Assistant
+
+2024-10-11:
+Breakthrough in Quantum Computing Achieved by Leading Tech Firm
+Study Finds Meditation Can Improve Sleep Quality Significantly
+
+2024-10-10:
+Historic Climate Accord Reached at International Summit
+Virtual Reality Therapy Found Effective in Treating Phobias
+
+2024-10-09:
+New Research Shows Promise of Gene Editing in Curing Hereditary Diseases
+World’s First Fully Solar-Powered Airport Opens in California
+
+2024-10-08:
+Global Initiative Launched to Reduce Plastic Waste in Oceans
+Robotics Company Introduces Autonomous Delivery Robots in Urban Areas
+
+2024-11-08:
+World's Largest Vertical Farm Opens in Dubai, Producing 10x More Crops than Conventional Agriculture
+Google Unveils Prototype for Contact Lens that Monitors Glucose Levels and Delivers Insulin as Needed
+New Research Indicates Potential Cure for Type 1 Diabetes Using Gene Therapy
+Massive Solar Farm Opens in Texas, Expected to Power 500,000 Homes
+
+current:
+The construction of Primary School No. 3 has begun
+Archaeologists have found the remains of a Neanderthal man in a knight's costume in the Havos cave
+Researchers Develop Biodegradable Plastic Made from Seaweed to Combat Ocean Pollution
+First Successful Flight of Electric Commercial Airplane Takes Off in Seattle
+2024-10-07:
+Archaeologists Discover Ancient City in the Desert of Saudi Arabia
+Innovative App Launches to Connect Volunteers with Local Charities
+
+2024-11-07:
+Flying Car Company Launches Pre-Orders for Personal Air Vehicle, Expects Deliveries in 2026
+Scientists Grow Beating Human Heart Tissue from Scratch Using Stem Cells and 3D Printing
+Robotics Company Unveils Advanced Drone Capable of Delivering Medical Supplies to Remote Areas
+Study Finds That Meditation Can Significantly Enhance Cognitive Function
+
+2024-10-06:
+Groundbreaking Study Reveals Link Between Diet and Mental Health
+New Green Energy Initiative Aims to Power Cities with 100% Renewable Sources
+
+2024-11-06:
+SpaceX Completes Historic First Crewed Mission to Titan, Discovers Potential for Life
+Nanobots Injected into Bloodstream Can Detect and Destroy Cancer Cells, Study Finds
+World’s First All-Climate Cryptocurrency Launched to Promote Sustainable Investments
+Breakthrough in Carbon Capture Technology Could Reduce Global Emissions by 50%
+
+2024-10-05:
+Electric Car Sales Surge as Major Automakers Announce New Models
+Scientists Create New Alloy That Is Stronger and Lighter Than Steel
+
+2024-11-05:
+Doctors Successfully Perform First Full Face Transplant Using Advanced Bioengineered Tissue
+AI Researcher Develops Algorithm to Translate Thoughts Directly into Written Text
+Historic Agreement Reached to Protect 30% of the Earth’s Land and Oceans by 2030
+New Virtual Reality Platform Allows Users to Experience Historical Events in Real Time
+
+2024-10-04:
+NASA Successfully Launches Mission to Study Asteroids in the Belt
+Researchers Develop Vaccine Capable of Fighting Multiple Strains of Flu
+
+2024-11-04:
+World's First Fusion Power Plant Goes Online in South Korea, Produces Abundant Clean Energy
+Amazon Opens Automated Grocery Store with No Cashiers or Checkout Lines in London
+Artificial Intelligence Now Capable of Composing Original Music in Various Genres
+Scientists Create First Ever “Living Robots” That Can Self-Replicate
+
+2024-10-03:
+World Health Organization Declares End to Polio in Several Countries
+New AI Tool Helps Detect Early Signs of Mental Health Issues in Teenagers
+
+2024-11-03:
+NASA Announces Plans for Crewed Mission to Venus by 2028
+Elon Musk Unveils Design for Reusable Rockets to Establish Human Colony on Mars
+New Study Shows Link Between Urban Green Spaces and Improved Mental Health
+Innovative Water Purification System Developed to Provide Clean Drinking Water in Developing Countries
+
+2024-10-02:
+Historic Peace Treaty Signed Between Rival Factions in Conflict Zone
+Tech Giant Unveils Revolutionary Foldable Smartphone with Advanced Features
+
+2024-11-02:
+Construction Begins on World's Tallest Wooden Skyscraper in Vancouver
+Archaeologists Uncover Ancient Egyptian Chariot Buried with Mummified Horses in Luxor Valley
+NASA Plans to Establish Permanent Base on the Moon by 2030
+Electric Vehicle Sales Surpass Gasoline Car Sales for the First Time in History
+
+2024-10-01:
+Scientists Announce Major Breakthrough in Fusion Energy Research
+New Study Links Regular Exercise to Enhanced Brain Function in Older Adults
+
 2024-11-01:
 Donald Trump becomes a superstar
 Accident on Highway 22 according to 1 victim
+Breakthrough in Alzheimer's Research: New Drug Shows Promise in Slowing Disease Progression
+Global Fashion Brand Launches Sustainable Clothing Line Made from Recycled Materials
 
